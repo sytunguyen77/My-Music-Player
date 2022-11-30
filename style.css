@@ -6,13 +6,21 @@
 body {
     font-family: Helvetica, sans-serif;
     background: #26282c;
-    height: 100vh;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    position: relative;
 }
 
 header,
@@ -33,12 +41,13 @@ header {
 }
 
 .player {
-    width: 500px;
-    height: 100vh;
+    max-width: 935px;
     margin: 0 auto;
     text-align: center;
     padding: 2.5em;
     color: #eee;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .cover {
@@ -200,7 +209,7 @@ small {
 }
 
 .controls .btn {
-    margin: 3em;
+    margin: 1em;
 }
 
 @media screen and (max-width: 700px) {
