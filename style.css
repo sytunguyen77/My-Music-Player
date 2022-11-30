@@ -1,0 +1,348 @@
+:root {
+    --neu: 0.8em 0.8em 1.8em #151618, -0.8em -0.8em 1em #33353b;
+    --btn-neu: 0.3em 0.3em 0.8em #151618, -0.3em -0.3em 0.5em #33353b;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    background: #26282c;
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header,
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+header .btn {
+    width: 3.5em;
+    height: 3.5em;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+.player {
+    width: 500px;
+    height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2.5em;
+    color: #eee;
+}
+
+.cover {
+    width: 18rem;
+    height: 18rem;
+    border: 0.8em #171a1d solid;
+    border-radius: 50%;
+    box-shadow: var(--neu);
+    object-fit: cover;
+}
+
+h1 {
+    margin: 1em 0 0.3em 0;
+}
+
+span,
+small {
+    color: #8c8f90;
+}
+
+.music-list .queue,
+.music-list ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.timeline-slider {
+    margin: 2em auto;
+    max-width: 30em;
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range-slider {
+    margin-top: 0.4em;
+    position: relative;
+    display: flex;
+    user-select: none;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 0.4em;
+    outline: none;
+    border-radius: 3px;
+    background: #1f1f1f;
+    box-shadow: inset 3px 3px 6px #000, 1px 1px 1px #909090;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.7em;
+    height: 1.7em;
+    z-index: 3;
+    position: relative;
+}
+
+.timeline-slider .slider-thumb {
+    position: absolute;
+    width: 1.7em;
+    height: 1.7em;
+    background: #111;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.timeline-slider .slider-thumb::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.7em;
+    height: 0.7em;
+    background: #333;
+    border-radius: inherit;
+    transition: 0.3s;
+}
+
+.timeline-slider .range-slider:hover .slider-thumb:before {
+    background: #2ae9c9;
+}
+
+.progress {
+    width: 50%;
+    height: 0.4em;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #335bf4 0%, #2ae9c9 100%);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    pointer-events: none;
+}
+
+/* VOLUME CONTROL */
+.volume-slider {
+    max-width: 16em;
+    margin: 1em auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume-slider .slider::-webkit-slider-thumb {
+    width: 0;
+}
+
+.volume-icon {
+    margin: 0 0.5em;
+    cursor: pointer;
+}
+
+.volume-icon span {
+    font-size: 2em;
+    padding-top: 0.2em;
+}
+
+.btn {
+    background: linear-gradient(-60deg, #1e1f23, #2e3137);
+    border: none;
+    box-shadow: var(--btn-neu);
+    width: 4em;
+    height: 4em;
+    border: 0.2em #1c2023 solid;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: linear-gradient(60deg, #1e1f23, #2e3137);
+}
+
+.btn-main {
+    background: linear-gradient(90deg, #335bf4 0%, #2ae9c9 100%);
+    width: 4.5em;
+    height: 4.5em;
+}
+
+.btn-main:hover {
+    background: linear-gradient(-90deg, #335bf4 0%, #2ae9c9 100%);
+}
+
+.btn-main span {
+    color: #fff;
+}
+
+.controls .btn {
+    margin: 3em;
+}
+
+@media screen and (max-width: 700px) {
+    .range-slider {
+        width: 100%;
+    }
+}
+
+.music-list {
+    position: absolute;
+    background: #151618;
+    width: 500px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 5;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease-out;
+}
+
+.music-list.show {
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+.queue .row {
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    color: #eee;
+}
+.queue .row i {
+    cursor: default;
+}
+.queue .row span {
+    margin-left: 5px;
+}
+.queue #close {
+    font-size: 22px;
+    color: #eeee;
+}
+.music-list ul {
+    margin: 10px 0;
+    max-height: 260px;
+    overflow: auto;
+}
+.music-list ul::-webkit-scrollbar {
+    width: 0px;
+}
+.music-list ul li {
+    list-style: none;
+    display: flex;
+    cursor: pointer;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    color: #eeee;
+    border-bottom: 1px solid #e5e5e5;
+}
+.music-list ul li:last-child {
+    border-bottom: 0px;
+}
+.music-list ul li .row span {
+    font-size: 17px;
+    display: flex;
+}
+.music-list ul li .row p {
+    opacity: 0.9;
+    text-align: left;
+}
+ul li .audio-duration {
+    font-size: 15px;
+}
+ul li.playing {
+    pointer-events: none;
+    color: purple;
+}
+
+/* Image Rotate */
+.rotate {
+    animation: rotation 8s infinite linear;
+    transform-origin: center;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+/* ======== Loader ========== */
+.loader {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.loader .stroke {
+    background: #2ae9c9;
+    height: 150%;
+    width: 10px;
+    border-radius: 50px;
+    margin: 0px 5px;
+    animation: animate 1.4s linear infinite;
+}
+@keyframes animate {
+    50% {
+        height: 20%;
+        background: linear-gradient(-90deg, #335bf4 0%, #2ae9c9 100%);
+    }
+    100% {
+        height: 100%;
+    }
+}
+.stroke:nth-child(1) {
+    animation-delay: 0s;
+}
+.stroke:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.stroke:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.stroke:nth-child(4) {
+    animation-delay: 0.9s;
+}
+.stroke:nth-child(5) {
+    animation-delay: 0.6s;
+}
+.stroke:nth-child(6) {
+    animation-delay: 0.3s;
+}
+.stroke:nth-child(7) {
+    animation-delay: 0s;
+}
