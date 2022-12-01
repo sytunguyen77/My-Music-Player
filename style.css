@@ -34,8 +34,8 @@ header,
 }
 
 header .btn {
-    width: 3.5em;
-    height: 3.5em;
+    width: 4.5em;
+    height: 4.5em;
 }
 
 header {
@@ -185,8 +185,8 @@ small {
     background: linear-gradient(-60deg, #1e1f23, #2e3137);
     border: none;
     box-shadow: var(--btn-neu);
-    width: 4em;
-    height: 4em;
+    width: 4.5em;
+    height: 4.5em;
     border: 0.2em #1c2023 solid;
     border-radius: 50%;
     cursor: pointer;
@@ -198,8 +198,8 @@ small {
 
 .btn-main {
     background: linear-gradient(90deg, #335bf4 0%, #2ae9c9 100%);
-    width: 4.5em;
-    height: 4.5em;
+    width: 5em;
+    height: 5em;
 }
 
 .btn-main:hover {
@@ -356,4 +356,11 @@ ul li.playing {
 }
 .stroke:nth-child(7) {
     animation-delay: 0s;
+}
+
+@media screen and (max-width: 450px) {
+    .music-list {
+        width: 400px;
+        height: 350px;
+    }
 }
