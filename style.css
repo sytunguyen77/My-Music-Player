@@ -110,9 +110,9 @@ small {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 1.7em;
-    height: 1.7em;
-    z-index: 3;
+    width: 0.1rem;
+    height: 0.1rem;
+    z-index: -5;
     position: relative;
 }
 
