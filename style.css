@@ -3,11 +3,6 @@
     --btn-neu: 0.3em 0.3em 0.8em #151618, -0.3em -0.3em 0.5em #33353b;
 }
 
-body {
-    font-family: Helvetica, sans-serif;
-    background: #26282c;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -21,8 +16,10 @@ body {
 }
 
 body {
+    font-family: Helvetica, sans-serif;
+    background: #26282c;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 header,
@@ -362,5 +359,16 @@ ul li.playing {
     .music-list {
         width: 400px;
         height: 350px;
+    }
+    .cover {
+        /* width: 15rem;
+        height: 15rem; */
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .cover {
+        width: 15rem;
+        height: 15rem;
     }
 }
