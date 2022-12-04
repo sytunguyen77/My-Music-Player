@@ -45,8 +45,9 @@ header {
     text-align: center;
     padding: 2.5em;
     color: #eee;
-    height: 100vh;
     overflow: hidden;
+    position: relative;
+    background: #26282c;
 }
 
 .cover {
@@ -219,20 +220,17 @@ small {
 
 .music-list {
     position: absolute;
-    background: #151618;
-    width: 500px;
-    height: 300px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    bottom: 0;
+    background: #26282c;
+    width: 100%;
+    transform: translateX(-40px);
+    bottom: -80%;
     opacity: 0;
     pointer-events: none;
     z-index: 5;
     padding: 15px 30px;
     border-radius: 15px;
     box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.15s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 .music-list.show {
@@ -279,13 +277,16 @@ small {
 .music-list ul li .row span {
     font-size: 17px;
     display: flex;
+    color: #eee;
 }
 .music-list ul li .row p {
     opacity: 0.9;
     text-align: left;
+    font-size: 12px;
 }
 ul li .audio-duration {
     font-size: 15px;
+    color: #eee;
 }
 ul li.playing {
     pointer-events: none;
@@ -360,12 +361,13 @@ ul li.playing {
         width: 400px;
         height: 350px;
     }
-    .cover {
-        /* width: 15rem;
-        height: 15rem; */
+    .loader {
+        display: none;
+    }
+    .music-list {
+        transform: translateX(-26px);
     }
 }
-
 @media screen and (max-width: 380px) {
     .cover {
         width: 15rem;

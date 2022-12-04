@@ -1,7 +1,7 @@
 let allMusic = [
     {
         track: "Immortal",
-        artist: "NEFFEX",
+        artist: "Neffex",
         img: "cover1",
         src: "Immortal",
     },

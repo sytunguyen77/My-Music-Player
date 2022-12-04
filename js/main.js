@@ -360,6 +360,8 @@ for (let i = 0; i < allMusic.length; i++) {
     });
 }
 
+
+
 //play particular song from the list onclick of li tag
 function playingSong() {
     const allLiTag = ulTag.querySelectorAll("li");
