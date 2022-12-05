@@ -30,15 +30,6 @@ header,
     text-align: center;
 }
 
-header .btn {
-    width: 4.5em;
-    height: 4.5em;
-}
-
-header {
-    margin-bottom: 2rem;
-}
-
 .player {
     max-width: 550px;
     margin: 0 auto;
@@ -50,7 +41,7 @@ header {
     background: #26282c;
 }
 
-.cover {
+img {
     width: 18rem;
     height: 18rem;
     border: 0.8em #171a1d solid;
@@ -205,7 +196,7 @@ small {
 }
 
 .btn-main span {
-    color: #fff;
+    color: #ddd;
 }
 
 .controls .btn {
@@ -248,7 +239,7 @@ small {
     cursor: default;
 }
 .queue .row span {
-    margin-left: 5px;
+    margin-left: 30px;
 }
 .queue #close {
     font-size: 22px;

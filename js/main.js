@@ -1,12 +1,11 @@
 //Get All necessary elements from the DOM
 const playBtn = document.querySelector("#mainPlayBtn");
 const audio = document.querySelector("#audio");
-const musicImg = document.querySelector("img");
+const musicImg = document.querySelector(".image-area img");
 const btnPrev = document.querySelector("#btnPrev");
 const btnNext = document.querySelector("#btnNext");
 const trackTitle = document.querySelector(".track-title");
 const artistName = document.querySelector(".artist-name");
-const cover = document.querySelector(".cover");
 const slider = document.querySelector(".slider");
 const thumb = document.querySelector(".slider-thumb");
 const progress = document.querySelector(".progress");
@@ -25,44 +24,29 @@ const closemoreMusic = musicList.querySelector("#close");
 let trackPlaying = false;
 //Is the volume muted
 let volumeMuted = false;
-/*Which track is currently 
-loaded (based on the numerical id)*/
-let trackId = 0;
 let musicIndex = Math.floor(Math.random() * allMusic.length + 1);
 
-/*Data*/
-//Track names
-const tracks = [
-    "Immortal",
-    "Beautiful Now",
-    "Stronger",
-    "Rose",
-    "Till I Collapse",
-    "Alone",
-    "Lost",
-];
+window.addEventListener("load", () => {
+    loadTrack(musicIndex);
+    playingSong();
+});
 
-//Artist names
-const artists = [
-    "NEFFEX",
-    "ZEDD",
-    "KAYNE WEST",
-    "THE CHAINSMOKERS",
-    "EMINEM",
-    "MARSHMELLO",
-    "RED",
-];
+function loadTrack(indexNumb) {
+    trackTitle.innerHTML = allMusic[indexNumb - 1].name;
+    artistName.innerHTML = allMusic[indexNumb - 1].artist;
+    musicImg.src = `assets/images/${allMusic[indexNumb - 1].img}.jpg`;
+    audio.src = `assets/tracks/${allMusic[indexNumb - 1].src}.mp3`;
 
-//Covers
-const covers = [
-    "cover1",
-    "cover2",
-    "cover3",
-    "cover4",
-    "cover5",
-    "cover6",
-    "cover7",
-];
+    progress.style.width = 0;
+    thumb.style.left = 0;
+    //Wait for the audio data to load
+    audio.addEventListener("loadeddata", () => {
+        //Display the duration of the audio file
+        setTime(fullTime, audio.duration);
+        //Set max value to slider
+        slider.setAttribute("max", audio.duration);
+    });
+}
 
 //Add a click event on the play button
 playBtn.addEventListener("click", playTrack);
@@ -83,7 +67,7 @@ function playTrack() {
         pause
       </span>
     `;
-        /*Set the trackPlaying to true, 
+        /*Set the trackPlaying to true,
     because the track is now playing*/
         trackPlaying = true;
         /*Otherwise, if it is playing*/
@@ -100,7 +84,7 @@ function playTrack() {
         play_arrow
       </span>
     `;
-        /*Set the trackPlaying to false, 
+        /*Set the trackPlaying to false,
     because the track is now paused again*/
         trackPlaying = false;
     }
@@ -115,48 +99,14 @@ function switchTrack() {
     }
 }
 
-//Get the track source
-const trackSrc = "assets/tracks/" + tracks[trackId] + ".mp3";
-
-//Load track function
-function loadTrack() {
-    //Set the audio track source
-    audio.src = "assets/tracks/" + tracks[trackId] + ".mp3";
-    //Re-load the audio track
-    audio.load();
-    //Set the track title
-    trackTitle.innerHTML = tracks[trackId];
-    //Set the artist name
-    artistName.innerHTML = artists[trackId];
-    //Set the cover image
-    cover.src = "assets/covers/" + covers[trackId] + ".jpg";
-    //Set the timeline slider to the beginning
-    progress.style.width = 0;
-    thumb.style.left = 0;
-
-    //Wait for the audio data to load
-    audio.addEventListener("loadeddata", () => {
-        //Display the duration of the audio file
-        setTime(fullTime, audio.duration);
-        //Set max value to slider
-        slider.setAttribute("max", audio.duration);
-    });
-}
-
-//Initialy load the track
-loadTrack();
-
 //Set click event to previous button
 btnPrev.addEventListener("click", () => {
     //Decrement track id
-    trackId--;
+    musicIndex--;
     //If the track id goes below 0
-    if (trackId < 0) {
-        //Go to the last track
-        trackId = tracks.length - 1;
-    }
+    musicIndex < 1 ? (musicIndex = allMusic.length) : (musicIndex = musicIndex);
     //Load the track
-    loadTrack();
+    loadTrack(musicIndex);
     //Run the switchTrack function
     switchTrack();
 });
@@ -167,13 +117,10 @@ btnNext.addEventListener("click", nextTrack);
 //Next track function
 function nextTrack() {
     //Increment track id
-    trackId++;
-    if (trackId > tracks.length - 1) {
-        //Go to the first track
-        trackId = 0;
-    }
+    musicIndex++;
+    musicIndex > allMusic.length ? (musicIndex = 1) : (musicIndex = musicIndex);
     //Load the track
-    loadTrack();
+    loadTrack(musicIndex);
     //Run the switchTrack function
     switchTrack();
 }
@@ -278,7 +225,7 @@ function customVolumeSlider() {
 //Run the volume slider function
 customVolumeSlider();
 
-/*Run the function again on when 
+/*Run the function again on when
 the volume slider is selected*/
 volumeSlider.addEventListener("input", customVolumeSlider);
 
@@ -296,7 +243,7 @@ volumeIcon.addEventListener("click", () => {
         audio.volume = 0;
         //Set the volume slider to zero
         volumeProgress.style.width = 0;
-        /*Set the volumeMuted to true, 
+        /*Set the volumeMuted to true,
     because the volume is now muted*/
         volumeMuted = true;
         //If the volume is muted
@@ -307,82 +254,49 @@ volumeIcon.addEventListener("click", () => {
         volume_down
       </span>
     `;
-        /*Unmute the volume by 
+        /*Unmute the volume by
     setting it to anything above zero*/
         audio.volume = 0.5;
         //Set the volume progress slider to the current value
         volumeProgress.style.width = val;
-        /*Set the volumeMuted to false, 
+        /*Set the volumeMuted to false,
     because the volume is no longer muted*/
         volumeMuted = false;
     }
 });
 
-//show music list onclick of music icon
+// Show PlayList
 moreMusicBtn.addEventListener("click", () => {
     musicList.classList.toggle("show");
 });
+
+// Hide PlayList
 closemoreMusic.addEventListener("click", () => {
     moreMusicBtn.click();
 });
 
 const ulTag = document.querySelector("ul");
-// let create li tags according to array length for list
+// Create li tags according to array length for list
 for (let i = 0; i < allMusic.length; i++) {
-    //let's pass the song name, artist from the array
+    //Pass the song name, artist from the array
     let liTag = `<li li-index="${i + 1}">
                 <div class="row">
-                  <span>${allMusic[i].track}</span>
+                  <span>${allMusic[i].name}</span>
                   <p>${allMusic[i].artist}</p>
                 </div>
-                <span id="${allMusic[i].src}" class="audio-duration">3:40</span>
+                <span class="material-symbols-outlined"> play_arrow </span>
                 <audio class="${allMusic[i].src}" src="assets/tracks/${
         allMusic[i].src
     }.mp3"></audio>
               </li>`;
     ulTag.insertAdjacentHTML("beforeend", liTag); //inserting the li inside ul tag
-
-    let liAudioDuartionTag = ulTag.querySelector(`#${allMusic[i].src}`);
-    let liAudioTag = ulTag.querySelector(`.${allMusic[i].src}`);
-    liAudioTag.addEventListener("loadeddata", () => {
-        let duration = liAudioTag.duration;
-        let totalMin = Math.floor(duration / 60);
-        let totalSec = Math.floor(duration % 60);
-        if (totalSec < 10) {
-            //if sec is less than 10 then add 0 before it
-            totalSec = `0${totalSec}`;
-        }
-        liAudioDuartionTag.innerText = `${totalMin}:${totalSec}`; //passing total duation of song
-        liAudioDuartionTag.setAttribute(
-            "t-duration",
-            `${totalMin}:${totalSec}`
-        ); //adding t-duration attribute with total duration value
-    });
 }
-
-
 
 //play particular song from the list onclick of li tag
 function playingSong() {
     const allLiTag = ulTag.querySelectorAll("li");
 
-    for (let j = 0; j < allLiTag.length; j++) {
-        let audioTag = allLiTag[j].querySelector(".audio-duration");
-
-        if (allLiTag[j].classList.contains("playing")) {
-            allLiTag[j].classList.remove("playing");
-            let adDuration = audioTag.getAttribute("t-duration");
-            audioTag.innerText = adDuration;
-        }
-
-        //if the li tag index is equal to the musicIndex then add playing class in it
-        if (allLiTag[j].getAttribute("li-index") == musicIndex) {
-            allLiTag[j].classList.add("playing");
-            audioTag.innerText = "Playing";
-        }
-
-        allLiTag[j].setAttribute("onclick", "clicked(this)");
-    }
+    for (let j = 0; j < allLiTag.length; j++) {}
 }
 
 //particular li clicked function

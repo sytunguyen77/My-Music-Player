@@ -1,38 +1,44 @@
 let allMusic = [
     {
-        track: "Immortal",
-        artist: "Neffex",
-        img: "cover1",
-        src: "Immortal",
+        name: "Immortal", // music name
+        artist: "Neffex", // artist name
+        img: "music-1", // image name
+        src: "Immortal", // music name
     },
     {
-        track: "Beautiful Now",
+        name: "Beautiful Now",
         artist: "Zedd",
-        img: "cover2",
-        src: "Beautiful-Now",
+        img: "music-2",
+        src: "Beautiful Now",
     },
     {
-        track: "Stronger",
+        name: "Stronger",
         artist: "Kayne West",
-        img: "cover3",
+        img: "music-3",
         src: "Stronger",
     },
     {
-        track: "Rose",
+        name: "Rose",
         artist: "The Chainsmokers",
-        img: "cover4",
+        img: "music-4",
         src: "Rose",
     },
     {
-        track: "Till I Collapse",
+        name: "Till I Collapse",
         artist: "Eminem",
-        img: "cover5",
-        src: "Till-I-Collapse",
+        img: "music-5",
+        src: "Till I Collapse",
     },
     {
-        track: "Lost",
+        name: "Alone",
+        artist: "Marshmello",
+        img: "music-6",
+        src: "Alone",
+    },
+    {
+        name: "Lost",
         artist: "Neffex",
-        img: "cover6",
+        img: "music-7",
         src: "Lost",
     },
 ];

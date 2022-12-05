@@ -7,7 +7,7 @@
             content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no"
         />
         <!--=============== FAVICON ===============-->
-        <link rel="shortcut icon" href="mp3.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
         <link
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
             rel="stylesheet"
@@ -30,15 +30,13 @@
                     <span class="material-symbols-outlined"> favorite </span>
                 </button>
                 <h3>Now Playing</h3>
-                <button class="btn">
-                    <span id="more-music" class="material-symbols-outlined">
-                        queue_music
-                    </span>
+                <button class="btn" value="click" id="more-music">
+                    <span class="material-symbols-outlined"> queue_music </span>
                 </button>
             </header>
 
             <div class="image-area">
-                <img src="assets/covers/cover1.jpg" class="cover" alt="cover" />
+                <img src="assets/images/music-1.jpg" class="cover" alt="" />
             </div>
             <h1 class="track-title">Immortal</h1>
             <span class="artist-name">Neffex</span>
@@ -102,7 +100,7 @@
                 <div class="queue">
                     <div class="row">
                         <i class="list material-icons">queue_music</i>
-                        <span>Playlist</span>
+                        <span class="playlist">Playlist</span>
                     </div>
                     <i id="close" class="material-icons">close</i>
                 </div>
