@@ -37,6 +37,7 @@ function loadTrack(indexNumb) {
     musicImg.src = `assets/images/${allMusic[indexNumb - 1].img}.jpg`;
     audio.src = `assets/tracks/${allMusic[indexNumb - 1].src}.mp3`;
 
+    //Set the timeline slider to the beginning
     progress.style.width = 0;
     thumb.style.left = 0;
     //Wait for the audio data to load
@@ -147,7 +148,6 @@ function setTime(output, input) {
 }
 
 //Output the audio track duration
-setTime(fullTime, audio.duration);
 
 //When the time changes on the audio track
 audio.addEventListener("timeupdate", () => {

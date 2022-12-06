@@ -3,42 +3,42 @@ let allMusic = [
         name: "Immortal", // music name
         artist: "Neffex", // artist name
         img: "music-1", // image name
-        src: "Immortal", // music name
+        src: "music-1", // music name
     },
     {
         name: "Beautiful Now",
         artist: "Zedd",
         img: "music-2",
-        src: "Beautiful Now",
+        src: "music-2",
     },
     {
         name: "Stronger",
         artist: "Kayne West",
         img: "music-3",
-        src: "Stronger",
+        src: "music-3",
     },
     {
         name: "Rose",
         artist: "The Chainsmokers",
         img: "music-4",
-        src: "Rose",
+        src: "music-4",
     },
     {
         name: "Till I Collapse",
         artist: "Eminem",
         img: "music-5",
-        src: "Till I Collapse",
+        src: "music-5",
     },
     {
         name: "Alone",
         artist: "Marshmello",
         img: "music-6",
-        src: "Alone",
+        src: "music-6",
     },
     {
         name: "Lost",
         artist: "Neffex",
         img: "music-7",
-        src: "Lost",
+        src: "music-7",
     },
 ];
