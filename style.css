@@ -39,6 +39,7 @@ header,
     overflow: hidden;
     position: relative;
     background: #26282c;
+    height: 900px;
 }
 
 img {
@@ -213,8 +214,10 @@ small {
     position: absolute;
     background: #26282c;
     width: 100%;
+    height: 55%;
     transform: translateX(-40px);
-    bottom: -80%;
+    /* transform: translateY(-100px); */
+    bottom: -55%;
     opacity: 0;
     pointer-events: none;
     z-index: 5;
@@ -250,6 +253,7 @@ small {
     max-height: 260px;
     overflow: auto;
 }
+
 .music-list ul::-webkit-scrollbar {
     width: 0px;
 }
@@ -258,9 +262,15 @@ small {
     display: flex;
     cursor: pointer;
     padding-bottom: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: #eeee;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #303134;
+    /* box-shadow: 0.1px 8px 8px 2px rgba(0, 0, 0, 0.1); */
+}
+
+.music-list ul li:hover {
+    border-radius: 5px 5px 5px 5px;
+    background: rgba(14, 14, 14, 0.1);
 }
 .music-list ul li:last-child {
     border-bottom: 0px;
@@ -357,6 +367,7 @@ ul li.playing {
     }
     .music-list {
         transform: translateX(-26px);
+        margin-bottom: 140px;
     }
 }
 @media screen and (max-width: 380px) {

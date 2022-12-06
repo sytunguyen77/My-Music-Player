@@ -26,29 +26,6 @@ let trackPlaying = false;
 let volumeMuted = false;
 let musicIndex = Math.floor(Math.random() * allMusic.length + 1);
 
-window.addEventListener("load", () => {
-    loadTrack(musicIndex);
-    playingSong();
-});
-
-function loadTrack(indexNumb) {
-    trackTitle.innerHTML = allMusic[indexNumb - 1].name;
-    artistName.innerHTML = allMusic[indexNumb - 1].artist;
-    musicImg.src = `assets/images/${allMusic[indexNumb - 1].img}.jpg`;
-    audio.src = `assets/tracks/${allMusic[indexNumb - 1].src}.mp3`;
-
-    //Set the timeline slider to the beginning
-    progress.style.width = 0;
-    thumb.style.left = 0;
-    //Wait for the audio data to load
-    audio.addEventListener("loadeddata", () => {
-        //Display the duration of the audio file
-        setTime(fullTime, audio.duration);
-        //Set max value to slider
-        slider.setAttribute("max", audio.duration);
-    });
-}
-
 //Add a click event on the play button
 playBtn.addEventListener("click", playTrack);
 
@@ -89,6 +66,61 @@ function playTrack() {
     because the track is now paused again*/
         trackPlaying = false;
     }
+}
+
+// function playTrack() {
+//     // document.classlist.add("paused");
+//     wave.classList.add("loader");
+//     musicImg.classList.add("rotate");
+//     playBtn.innerHTML = `
+//       <span class="material-symbols-outlined">
+//         pause
+//       </span>
+//     `;
+//     audio.play();
+// }
+
+// function pauseTrack() {
+//     // document.classlist.remove("paused");
+//     wave.classList.remove("loader");
+//     musicImg.classList.remove("rotate");
+//     playBtn.innerHTML = `
+//       <span class="material-symbols-outlined">
+//         pause
+//       </span>
+//     `;
+//     audio.pause();
+// }
+
+// play or pause button event
+// playPauseBtn.addEventListener("click", () => {
+//     const isMusicPlay = document.classList.contains("paused");
+//     //if isPlayMusic is true then call pauseMusic else call playMusic
+//     isMusicPlay ? pauseTrack() : playTrack();
+//     playFromPlayList();
+// });
+
+window.addEventListener("load", () => {
+    loadTrack(musicIndex);
+    playFromPlayList();
+});
+
+function loadTrack(indexNumb) {
+    trackTitle.innerHTML = allMusic[indexNumb - 1].name;
+    artistName.innerHTML = allMusic[indexNumb - 1].artist;
+    musicImg.src = `assets/images/${allMusic[indexNumb - 1].img}.jpg`;
+    audio.src = `assets/music/${allMusic[indexNumb - 1].src}.mp3`;
+
+    //Set the timeline slider to the beginning
+    progress.style.width = 0;
+    thumb.style.left = 0;
+    //Wait for the audio data to load
+    audio.addEventListener("loadeddata", () => {
+        //Display the duration of the audio file
+        setTime(fullTime, audio.duration);
+        //Set max value to slider
+        slider.setAttribute("max", audio.duration);
+    });
 }
 
 //Switching tracks function
@@ -293,10 +325,12 @@ for (let i = 0; i < allMusic.length; i++) {
 }
 
 //play particular song from the list onclick of li tag
-function playingSong() {
+function playFromPlayList() {
     const allLiTag = ulTag.querySelectorAll("li");
 
-    for (let j = 0; j < allLiTag.length; j++) {}
+    for (let j = 0; j < allLiTag.length; j++) {
+        allLiTag[j].setAttribute("onclick", "clicked(this)");
+    }
 }
 
 //particular li clicked function
@@ -305,5 +339,5 @@ function clicked(element) {
     musicIndex = getLiIndex; //updating current song index with clicked li index
     loadTrack(musicIndex);
     playTrack();
-    playingSong();
+    playFromPlayList();
 }
