@@ -68,29 +68,30 @@ function playTrack() {
     }
 }
 
-// function playTrack() {
-//     // document.classlist.add("paused");
-//     wave.classList.add("loader");
-//     musicImg.classList.add("rotate");
-//     playBtn.innerHTML = `
-//       <span class="material-symbols-outlined">
-//         pause
-//       </span>
-//     `;
-//     audio.play();
-// }
+function playMusic() {
+    // document.classList.add("paused");
+    wave.classList.add("loader");
+    musicImg.classList.add("rotate");
+    playBtn.innerHTML = `
+      <span class="material-symbols-outlined">
+        pause
+      </span>
+    `;
+    audio.play();
+}
 
-// function pauseTrack() {
-//     // document.classlist.remove("paused");
-//     wave.classList.remove("loader");
-//     musicImg.classList.remove("rotate");
-//     playBtn.innerHTML = `
-//       <span class="material-symbols-outlined">
-//         pause
-//       </span>
-//     `;
-//     audio.pause();
-// }
+function pauseTrack() {
+    document.classList.remove("paused");
+    wave.classList.remove("loader");
+    musicImg.classList.remove("rotate");
+    playBtn.innerHTML = `
+      <span class="material-symbols-outlined">
+        pause
+      </span>
+    `;
+
+    audio.pause();
+}
 
 // play or pause button event
 // playPauseBtn.addEventListener("click", () => {
@@ -338,6 +339,6 @@ function clicked(element) {
     let getLiIndex = element.getAttribute("li-index");
     musicIndex = getLiIndex; //updating current song index with clicked li index
     loadTrack(musicIndex);
-    playTrack();
+    playMusic();
     playFromPlayList();
 }
