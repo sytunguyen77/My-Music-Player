@@ -1,7 +1,7 @@
 //Get All necessary elements from the DOM
-const playBtn = document.querySelector("#mainPlayBtn");
 const audio = document.querySelector("#audio");
 const musicImg = document.querySelector(".image-area img");
+const playBtn = document.querySelector("#mainPlayBtn");
 const btnPrev = document.querySelector("#btnPrev");
 const btnNext = document.querySelector("#btnNext");
 const trackTitle = document.querySelector(".track-title");
