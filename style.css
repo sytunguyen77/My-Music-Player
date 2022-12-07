@@ -251,12 +251,13 @@ small {
 .music-list ul {
     margin: 10px 0;
     max-height: 260px;
-    overflow: auto;
+    overflow-y: scroll;
 }
 
 .music-list ul::-webkit-scrollbar {
-    width: 0px;
+    width: 1px;
 }
+
 .music-list ul li {
     list-style: none;
     display: flex;

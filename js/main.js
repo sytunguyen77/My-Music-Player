@@ -299,14 +299,19 @@ volumeIcon.addEventListener("click", () => {
 });
 
 // Show PlayList
-moreMusicBtn.addEventListener("click", () => {
+moreMusicBtn.addEventListener("click", showPlayList);
+function showPlayList() {
     musicList.classList.toggle("show");
-});
+}
 
 // Hide PlayList
 closemoreMusic.addEventListener("click", () => {
     moreMusicBtn.click();
 });
+
+function hidePlayList() {
+    musicList.classList.toggle("show");
+}
 
 const ulTag = document.querySelector("ul");
 // Create li tags according to array length for list
@@ -317,7 +322,7 @@ for (let i = 0; i < allMusic.length; i++) {
                   <span>${allMusic[i].name}</span>
                   <p>${allMusic[i].artist}</p>
                 </div>
-                <span class="material-symbols-outlined"> play_arrow </span>
+                <span class="material-symbols-outlined" style=" background: linear-gradient(-90deg, #335bf4 0%, #2ae9c9 100%); border-radius: 50%; color: #ddd; "> play_arrow </span>
                 <audio class="${allMusic[i].src}" src="assets/tracks/${
         allMusic[i].src
     }.mp3"></audio>
@@ -340,5 +345,6 @@ function clicked(element) {
     musicIndex = getLiIndex; //updating current song index with clicked li index
     loadTrack(musicIndex);
     playMusic();
+    hidePlayList();
     playFromPlayList();
 }
