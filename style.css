@@ -200,6 +200,10 @@ small {
     color: #ddd;
 }
 
+#btn-like {
+    color: #2ae9c9;
+}
+
 .controls .btn {
     margin: 1em;
 }
