@@ -37,7 +37,7 @@ let allMusic = [
     },
     {
         name: "Lost",
-        artist: "Neffex",
+        artist: "Red",
         img: "cover-7",
         src: "track-7",
     },
