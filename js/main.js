@@ -15,6 +15,7 @@ const volumeSlider = document.querySelector(".volume-slider .slider");
 const volumeProgress = document.querySelector(".volume-slider .progress");
 const volumeIcon = document.querySelector(".volume-icon");
 const wave = document.getElementById("wave");
+const mediaThumb = document.querySelector(".media-thumb");
 const musicList = document.querySelector(".music-list");
 const moreMusicBtn = document.querySelector("#more-music");
 const closemoreMusic = musicList.querySelector("#close");
@@ -36,6 +37,7 @@ function playTrack() {
       //Play the audio
       // Add Wave
       wave.classList.add("loader");
+      mediaThumb.style.display = "block";
       // Make Image Rotate
       musicImg.classList.add("rotate");
       audio.play();
@@ -53,6 +55,7 @@ function playTrack() {
       //Pause the audio
       // Remove Wave when pausing the audio
       wave.classList.remove("loader");
+      mediaThumb.style.display = "none";
       // Remove Rotate Image when pausing the audio
       musicImg.classList.remove("rotate");
       audio.pause();
