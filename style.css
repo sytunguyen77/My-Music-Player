@@ -19,7 +19,6 @@ body {
    font-family: Helvetica, sans-serif;
    background: #26282c;
    position: relative;
-   min-height: 100vh;
 }
 
 header,
@@ -41,6 +40,7 @@ header,
    position: relative;
    background: #26282c;
    height: 900px;
+   min-height: 100vh;
 }
 
 .image-area img {
@@ -155,13 +155,6 @@ small {
    color: #8c8f90;
 }
 
-.music-list .queue,
-.music-list ul li {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-}
-
 .timeline-slider {
    margin: 2em auto;
    max-width: 30em;
@@ -243,7 +236,7 @@ small {
    pointer-events: none;
 }
 
-/* VOLUME CONTROL */
+/* STYLES FOR VOLUME CONTROL */
 .volume-slider {
    max-width: 16em;
    margin: 1em auto;
@@ -309,6 +302,14 @@ small {
    }
 }
 
+/* STYLES FOR MUSIC LIST */
+.music-list .queue,
+.music-list ul li {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
 .music-list {
    position: absolute;
    background: #26282c;
@@ -337,13 +338,13 @@ small {
    font-size: 19px;
    color: #eee;
 }
-.queue .row i {
+.music-list .queue .row i {
    cursor: default;
 }
-.queue .row span {
+.music-list .queue .row span {
    margin-left: 30px;
 }
-.queue #close {
+.music-list .queue #close {
    font-size: 22px;
    color: #eeee;
    cursor: pointer;
@@ -397,7 +398,7 @@ ul li.playing {
    color: purple;
 }
 
-/* Image Rotate */
+/* IMAGE ROTATE */
 .rotate {
    animation: rotation 8s infinite linear;
    transform-origin: center;
@@ -460,19 +461,21 @@ ul li.playing {
    animation-delay: 0s;
 }
 
+/* FOR SMALL DEVICES */
 @media screen and (max-width: 450px) {
    .music-list {
+      position: fixed;
       width: 400px;
-      height: 350px;
+      height: 320px;
+      overflow: hidden;
+      left: 50%; /* Center the element horizontally */
+      transform: translateX(-50%); /* Center the element horizontally */
    }
    .loader {
       display: none;
    }
-   .music-list {
-      transform: translateX(-26px);
-      margin-bottom: 140px;
-   }
 }
+
 @media screen and (max-width: 380px) {
    .cover {
       width: 15rem;
