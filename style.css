@@ -316,7 +316,7 @@ small {
    height: 55%;
    transform: translateX(-40px);
    /* transform: translateY(-100px); */
-   bottom: -55%;
+   bottom: -15%;
    opacity: 0;
    pointer-events: none;
    z-index: 5;

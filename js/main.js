@@ -286,6 +286,10 @@ volumeIcon.addEventListener("click", () => {
 // Show PlayList
 moreMusicBtn.addEventListener("click", showPlayList);
 function showPlayList() {
+   // Scroll to the current playing song
+   const allLiTag = ulTag.querySelectorAll("li");
+   const currentLi = allLiTag[musicIndex - 1];
+   currentLi.scrollIntoView({ behavior: "smooth", block: "nearest" });
    musicList.classList.toggle("show");
 }
 
