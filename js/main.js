@@ -75,6 +75,7 @@ function playMusic() {
    // document.classList.add("paused");
    wave.classList.add("loader");
    musicImg.classList.add("rotate");
+   mediaThumb.style.display = "block";
    playBtn.innerHTML = /*html*/ `
       <span class="material-symbols-outlined">
         pause

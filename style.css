@@ -346,6 +346,9 @@ small {
 .queue #close {
    font-size: 22px;
    color: #eeee;
+   cursor: pointer;
+   position: absolute;
+   right: 42px;
 }
 .music-list ul {
    margin: 10px 0;
