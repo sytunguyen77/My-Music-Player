@@ -41,6 +41,7 @@ function playTrack() {
       // Make Image Rotate
       musicImg.classList.add("rotate");
       audio.play();
+      updatePlaylistIcons();
       //Add a pause icon inside the button
       playBtn.innerHTML = /*html*/ `
       <span class="material-symbols-outlined">
@@ -65,36 +66,11 @@ function playTrack() {
         play_arrow
       </span>
     `;
+      updatePlayIconInPlayList();
       /*Set the trackPlaying to false,
     because the track is now paused again*/
       trackPlaying = false;
    }
-}
-
-function playMusic() {
-   // document.classList.add("paused");
-   wave.classList.add("loader");
-   musicImg.classList.add("rotate");
-   mediaThumb.style.display = "block";
-   playBtn.innerHTML = /*html*/ `
-      <span class="material-symbols-outlined">
-        pause
-      </span>
-    `;
-   audio.play();
-}
-
-function pauseTrack() {
-   document.classList.remove("paused");
-   wave.classList.remove("loader");
-   musicImg.classList.remove("rotate");
-   playBtn.innerHTML = /*html*/ `
-      <span class="material-symbols-outlined">
-        pause
-      </span>
-    `;
-
-   audio.pause();
 }
 
 // play or pause button event
@@ -134,6 +110,7 @@ function switchTrack() {
    if (trackPlaying === true) {
       //Keep playing the audio
       audio.play();
+      updatePlaylistIcons();
    }
 }
 
@@ -147,10 +124,14 @@ btnPrev.addEventListener("click", () => {
    loadTrack(musicIndex);
    //Run the switchTrack function
    switchTrack();
+   updatePlaylistIcons(); // Update playlist icons when clicking the previous button
 });
 
 //Set click event to next button
-btnNext.addEventListener("click", nextTrack);
+btnNext.addEventListener("click", () => {
+   nextTrack();
+   updatePlaylistIcons(); // Update playlist icons when clicking the next button
+});
 
 //Next track function
 function nextTrack() {
@@ -321,7 +302,7 @@ const ulTag = document.querySelector("ul");
 // Create li tags according to array length for list
 for (let i = 0; i < allMusic.length; i++) {
    //Pass the song name, artist from the array
-   let liTag = /*html*/ `
+   let liTag = `
     <li li-index="${i + 1}">
         <div class="row">
           <span>${allMusic[i].name}</span>
@@ -330,9 +311,7 @@ for (let i = 0; i < allMusic.length; i++) {
         <span
           class="material-symbols-outlined"
           style="
-            background: linear-gradient(-90deg, #335bf4 0%, #2ae9c9 100%);
-            border-radius: 50%;
-            color: #ddd;
+            color: #aaa;
           "
         >
           play_arrow
@@ -354,12 +333,83 @@ function playFromPlayList() {
    }
 }
 
+function playSongsInPlayList() {
+   // document.classList.add("paused");
+   wave.classList.add("loader");
+   musicImg.classList.add("rotate");
+   mediaThumb.style.display = "block";
+   playBtn.innerHTML = /*html*/ `
+      <span class="material-symbols-outlined">
+        pause
+      </span>
+    `;
+   audio.play();
+}
+
+// Function to update playlist icons when clicking on play, next and previous button
+function updatePlaylistIcons() {
+   const allLiTag = ulTag.querySelectorAll("li");
+   for (let j = 0; j < allLiTag.length; j++) {
+      const icon = allLiTag[j].querySelector(".material-symbols-outlined");
+      if (j === musicIndex - 1) {
+         // Set the icon to gif icon for the clicked song
+         icon.innerHTML = `<div style="background-image: url('assets/icon/icon-playing.gif'); width: 24px; height: 24px; background-size: cover; display: inline-block;"></div>`;
+         // Set the background color of the clicked song
+         allLiTag[j].style.backgroundColor = "rgba(14, 14, 14, 0.1)";
+         allLiTag[j].style.borderRadius = "5px 5px 5px 5px";
+      } else {
+         // Set the icon to play for the other songs
+         icon.innerHTML = "play_arrow";
+         // Reset the background color of other songs
+         allLiTag[j].style.backgroundColor = "";
+      }
+   }
+}
+
+// Function to remove playlist icons when clicking on pause button
+function updatePlayIconInPlayList() {
+   const allLiTag = ulTag.querySelectorAll("li");
+
+   for (let j = 0; j < allLiTag.length; j++) {
+      const icon = allLiTag[j].querySelector(".material-symbols-outlined");
+      if (j === musicIndex - 1) {
+         // Set the icon to play_arrow for the current song when paused
+         icon.innerHTML = "play_arrow";
+      }
+   }
+}
+
 //particular li clicked function
 function clicked(element) {
    let getLiIndex = element.getAttribute("li-index");
+
+   // Return if the clicked song is the same as the currently playing song
+   if (musicIndex === getLiIndex) {
+      return;
+   }
+
    musicIndex = getLiIndex; //updating current song index with clicked li index
+
+   // Update the play icon to gif icon for the clicked song
+   updatePlaylistIcons();
+   mediaThumb.style.display = "block";
    loadTrack(musicIndex);
-   playMusic();
-   hidePlayList();
+   playSongsInPlayList();
+   // hidePlayList();
    playFromPlayList();
 }
+
+// Styles for Liked Button
+const likeButton = document.getElementById("like-button");
+const likeIcon = document.getElementById("btn-like");
+
+let isLiked = false; // Add a variable to keep track of the liked state
+
+likeButton.addEventListener("click", () => {
+   if (!isLiked) {
+      likeIcon.style.color = "red";
+   } else {
+      likeIcon.style.color = ""; // Reset to the normal color
+   }
+   isLiked = !isLiked; // Toggle the liked state
+});

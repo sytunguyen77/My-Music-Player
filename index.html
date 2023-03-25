@@ -7,16 +7,23 @@
          content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no"
       />
       <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+      <link rel="shortcut icon" href="assets/icon/favicon.png" type="image/x-icon" />
       <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+         crossorigin="anonymous"
+         referrerpolicy="no-referrer"
+      />
       <link rel="stylesheet" href="style.css" />
       <title>Music Player || Sy Tu</title>
    </head>
    <body>
       <div class="player">
          <header>
-            <button class="btn" value="Click" onclick="alert('You liked this song!');">
+            <button class="btn" id="like-button">
                <span class="material-symbols-outlined" id="btn-like"> favorite </span>
             </button>
             <h3>Now Playing</h3>

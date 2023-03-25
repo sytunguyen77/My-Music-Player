@@ -43,7 +43,7 @@ header,
    height: 900px;
 }
 
-img {
+.image-area img {
    width: 18rem;
    height: 18rem;
    border: 0.8em #171a1d solid;
@@ -295,9 +295,9 @@ small {
    color: #ddd;
 }
 
-#btn-like {
+/* #btn-like {
    color: #2ae9c9;
-}
+} */
 
 .controls .btn {
    margin: 1em;
