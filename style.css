@@ -314,7 +314,7 @@ small {
    position: absolute;
    background: #26282c;
    width: 100%;
-   height: 55%;
+   height: 56%;
    transform: translateX(-40px);
    /* transform: translateY(-100px); */
    bottom: -15%;
@@ -465,8 +465,8 @@ ul li.playing {
 @media screen and (max-width: 450px) {
    .music-list {
       position: fixed;
-      width: 400px;
-      height: 320px;
+      width: 100%;
+      height: 50%;
       overflow: hidden;
       left: 50%; /* Center the element horizontally */
       transform: translateX(-50%); /* Center the element horizontally */
