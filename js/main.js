@@ -338,19 +338,6 @@ function playFromPlayList() {
    }
 }
 
-function playSongsInPlayList() {
-   // document.classList.add("paused");
-   wave.classList.add("loader");
-   musicImg.classList.add("rotate");
-   mediaThumb.style.display = "block";
-   playBtn.innerHTML = /*html*/ `
-      <span class="material-symbols-outlined">
-        pause
-      </span>
-    `;
-   audio.play();
-}
-
 // Function to update playlist icons when clicking on play, next and previous button
 function updatePlaylistIcons() {
    const allLiTag = ulTag.querySelectorAll("li");
@@ -388,8 +375,10 @@ function updatePlayIconInPlayList() {
 function clicked(element) {
    let getLiIndex = element.getAttribute("li-index");
 
-   // Return if the clicked song is the same as the currently playing song
+   // Check if the clicked song is the same as the currently playing song
    if (musicIndex === getLiIndex) {
+      // Toggle play and pause for the current song
+      playTrack();
       return;
    }
 
@@ -399,8 +388,14 @@ function clicked(element) {
    updatePlaylistIcons();
    mediaThumb.style.display = "block";
    loadTrack(musicIndex);
-   playSongsInPlayList();
-   // hidePlayList();
+
+   if (!trackPlaying) {
+      playTrack(); // This will play the track when it's paused and a new song from the playlist is clicked
+   } else {
+      playTrack(); // This will pause the current track
+      playTrack(); // This will play the new track
+   }
+
    playFromPlayList();
 }
 
