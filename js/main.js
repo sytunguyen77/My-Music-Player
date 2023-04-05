@@ -73,14 +73,6 @@ function playTrack() {
    }
 }
 
-// play or pause button event
-// playPauseBtn.addEventListener("click", () => {
-//     const isMusicPlay = document.classList.contains("paused");
-//     //if isPlayMusic is true then call pauseMusic else call playMusic
-//     isMusicPlay ? pauseTrack() : playTrack();
-//     playFromPlayList();
-// });
-
 window.addEventListener("load", () => {
    loadTrack(musicIndex);
    playFromPlayList();
