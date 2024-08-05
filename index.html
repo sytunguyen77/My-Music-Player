@@ -1,139 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta
-         name="viewport"
-         content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no"
-      />
-      <!--=============== FAVICON ===============-->
-      <link rel="shortcut icon" href="assets/icon/favicon.png" type="image/x-icon" />
-      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-      <link
-         rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-         crossorigin="anonymous"
-         referrerpolicy="no-referrer"
-      />
-      <link rel="stylesheet" href="style.css" />
-      <title>Music Player || Sy Tu</title>
-   </head>
-   <body>
-      <div class="player">
-         <header>
-            <button class="btn" id="like-button">
-               <span class="material-symbols-outlined" id="btn-like"> favorite </span>
-            </button>
-            <h3>Now Playing</h3>
-            <button class="btn" value="click" id="more-music">
-               <span class="material-symbols-outlined"> queue_music </span>
-            </button>
-         </header>
 
-         <div class="">
-            <div class="image-area">
-               <img
-                  src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                  class="cover"
-                  alt="cover"
-               />
-            </div>
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no" />
+   <!--=============== FAVICON ===============-->
+   <link rel="shortcut icon" href="assets/icon/favicon.png" type="image/x-icon" />
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="style.css" />
+   <title>Music Player || Sy Tu</title>
+</head>
 
-            <div class="media-thumb">
-               <svg fill="#fff" viewBox="0 0 512 512" class="thumb-note note-1">
-                  <path
-                     d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z"
-                  ></path>
-               </svg>
-               <svg fill="#fff" viewBox="0 0 384 512" class="thumb-note note-2">
-                  <path
-                     d="M310.94 1.33l-96.53 28.51A32 32 0 0 0 192 60.34V360a148.76 148.76 0 0 0-48-8c-61.86 0-112 35.82-112 80s50.14 80 112 80 112-35.82 112-80V148.15l73-21.39a32 32 0 0 0 23-30.71V32a32 32 0 0 0-41.06-30.67z"
-                  ></path>
-               </svg>
-               <svg fill="#fff" viewBox="0 0 512 512" class="thumb-note note-3">
-                  <path
-                     d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z"
-                  ></path>
-               </svg>
-               <svg fill="#fff" viewBox="0 0 384 512" class="thumb-note note-4">
-                  <path
-                     d="M310.94 1.33l-96.53 28.51A32 32 0 0 0 192 60.34V360a148.76 148.76 0 0 0-48-8c-61.86 0-112 35.82-112 80s50.14 80 112 80 112-35.82 112-80V148.15l73-21.39a32 32 0 0 0 23-30.71V32a32 32 0 0 0-41.06-30.67z"
-                  ></path>
-               </svg>
-            </div>
+<body>
+   <div class="player">
+      <header>
+         <button class="btn" id="like-button">
+            <span class="material-symbols-outlined" id="btn-like"> favorite </span>
+         </button>
+         <h3>Now Playing</h3>
+         <button class="btn" value="click" id="more-music">
+            <span class="material-symbols-outlined"> queue_music </span>
+         </button>
+      </header>
+
+      <div class="">
+         <div class="image-area">
+            <img
+               src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+               class="cover" alt="cover" />
          </div>
 
-         <h1 class="track-title">Immortal</h1>
-         <span class="artist-name">Neffex</span>
-         <div class="timeline-slider">
-            <div class="timeline">
-               <small class="time">0:00</small>
-               <small class="fulltime">0:00</small>
-            </div>
-            <div class="range-slider">
-               <input type="range" min="0" max="100" value="0" class="slider" />
-               <div class="slider-thumb"></div>
-               <div class="progress"></div>
-            </div>
-         </div>
-         <div class="volume-slider">
-            <div class="volume-icon">
-               <span class="material-symbols-outlined"> volume_down </span>
-            </div>
-            <div class="range-slider">
-               <input type="range" min="0" max="100" value="50" class="slider" />
-               <div class="progress"></div>
-            </div>
-         </div>
-         <div class="controls">
-            <button class="btn" id="btnPrev">
-               <span class="material-symbols-outlined"> fast_rewind </span>
-            </button>
-            <button class="btn btn-main" id="mainPlayBtn">
-               <span class="material-symbols-outlined"> play_arrow </span>
-            </button>
-            <button class="btn" id="btnNext">
-               <span class="material-symbols-outlined"> fast_forward </span>
-            </button>
-         </div>
-
-         <div id="wave">
-            <span class="stroke"></span>
-            <span class="stroke"></span>
-            <span class="stroke"></span>
-            <span class="stroke"></span>
-            <span class="stroke"></span>
-            <span class="stroke"></span>
-            <span class="stroke"></span>
-         </div>
-
-         <div class="music-list">
-            <div class="queue">
-               <div class="row">
-                  <i class="list material-icons">queue_music</i>
-                  <span class="playlist">Playlist</span>
-               </div>
-               <i id="close" class="material-icons">close</i>
-            </div>
-            <ul>
-               <!-- here li list are coming from js -->
-            </ul>
+         <div class="media-thumb">
+            <svg fill="#fff" viewBox="0 0 512 512" class="thumb-note note-1">
+               <path
+                  d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z">
+               </path>
+            </svg>
+            <svg fill="#fff" viewBox="0 0 384 512" class="thumb-note note-2">
+               <path
+                  d="M310.94 1.33l-96.53 28.51A32 32 0 0 0 192 60.34V360a148.76 148.76 0 0 0-48-8c-61.86 0-112 35.82-112 80s50.14 80 112 80 112-35.82 112-80V148.15l73-21.39a32 32 0 0 0 23-30.71V32a32 32 0 0 0-41.06-30.67z">
+               </path>
+            </svg>
+            <svg fill="#fff" viewBox="0 0 512 512" class="thumb-note note-3">
+               <path
+                  d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z">
+               </path>
+            </svg>
+            <svg fill="#fff" viewBox="0 0 384 512" class="thumb-note note-4">
+               <path
+                  d="M310.94 1.33l-96.53 28.51A32 32 0 0 0 192 60.34V360a148.76 148.76 0 0 0-48-8c-61.86 0-112 35.82-112 80s50.14 80 112 80 112-35.82 112-80V148.15l73-21.39a32 32 0 0 0 23-30.71V32a32 32 0 0 0-41.06-30.67z">
+               </path>
+            </svg>
          </div>
       </div>
 
-      <audio id="audio" hidden>
-         <source src="assets/tracks/music-1.mp3" />
-      </audio>
+      <h1 class="track-title">Immortal</h1>
+      <span class="artist-name">Neffex</span>
+      <div class="timeline-slider">
+         <div class="timeline">
+            <small class="time">0:00</small>
+            <small class="fulltime">0:00</small>
+         </div>
+         <div class="range-slider">
+            <input type="range" min="0" max="100" value="0" class="slider" />
+            <div class="slider-thumb"></div>
+            <div class="progress"></div>
+         </div>
+      </div>
+      <div class="volume-slider">
+         <div class="volume-icon">
+            <span class="material-symbols-outlined"> volume_down </span>
+         </div>
+         <div class="range-slider">
+            <input type="range" min="0" max="100" value="50" class="slider" />
+            <div class="progress"></div>
+         </div>
+      </div>
+      <div class="controls">
+         <button class="btn" id="btnPrev">
+            <span class="material-symbols-outlined"> fast_rewind </span>
+         </button>
+         <button class="btn btn-main" id="mainPlayBtn">
+            <span class="material-symbols-outlined"> play_arrow </span>
+         </button>
+         <button class="btn" id="btnNext">
+            <span class="material-symbols-outlined"> fast_forward </span>
+         </button>
+      </div>
 
-      <script src="js/playlist.js"></script>
-      <script src="js/main.js"></script>
-      <!-- DISABLE THE DOUBLE TAP EVENT ON MOBILE DEVICES -->
-      <script>
-         document.addEventListener("dblclick", function (event) {
-            event.preventDefault();
-         });
-      </script>
-   </body>
+      <!-- <div id="wave">
+         <span class="stroke"></span>
+         <span class="stroke"></span>
+         <span class="stroke"></span>
+         <span class="stroke"></span>
+         <span class="stroke"></span>
+         <span class="stroke"></span>
+         <span class="stroke"></span>
+      </div> -->
+
+      <div class="music-list">
+         <div class="queue">
+            <div class="row">
+               <i class="list material-icons">queue_music</i>
+               <span class="playlist">Playlist</span>
+            </div>
+            <i id="close" class="material-icons">close</i>
+         </div>
+         <ul>
+            <!-- here li list are coming from js -->
+         </ul>
+      </div>
+   </div>
+
+   <audio id="audio" hidden>
+      <source src="assets/tracks/music-1.mp3" />
+   </audio>
+
+   <script src="js/playlist.js"></script>
+   <script src="js/main.js"></script>
+   <!-- DISABLE THE DOUBLE TAP EVENT ON MOBILE DEVICES -->
+   <script>
+      document.addEventListener("dblclick", function (event) {
+         event.preventDefault();
+      });
+   </script>
+</body>
+
 </html>
